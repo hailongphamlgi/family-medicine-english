@@ -1,0 +1,1353 @@
+```css
+/* =====================================================
+   FAMILY MEDICINE ENGLISH
+   MAIN STYLES
+===================================================== */
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background: #f4f7fb;
+
+    color: #1f2937;
+
+    min-height: 100vh;
+}
+
+
+/* =====================================================
+   APP LAYOUT
+===================================================== */
+
+.app {
+    display: flex;
+
+    min-height: 100vh;
+}
+
+
+/* =====================================================
+   SIDEBAR
+===================================================== */
+
+.sidebar {
+    width: 250px;
+
+    min-height: 100vh;
+
+    background: #ffffff;
+
+    border-right: 1px solid #e5e7eb;
+
+    padding: 28px 18px;
+
+    position: fixed;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 0 10px 30px;
+}
+
+
+.logo-icon {
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #e8f3ff;
+
+    border-radius: 14px;
+
+    font-size: 24px;
+}
+
+
+.logo-text {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+.logo-text strong {
+    font-size: 17px;
+
+    color: #172033;
+}
+
+
+.logo-text span {
+    font-size: 12px;
+
+    color: #8a94a6;
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+nav {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+.nav-item {
+    width: 100%;
+
+    border: none;
+
+    background: transparent;
+
+    padding: 13px 15px;
+
+    border-radius: 12px;
+
+    text-align: left;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #697386;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.nav-item:hover {
+    background: #f1f6fb;
+
+    color: #2563eb;
+}
+
+
+.nav-item.active {
+    background: #eaf3ff;
+
+    color: #2563eb;
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.main {
+    margin-left: 250px;
+
+    width: calc(100% - 250px);
+
+    min-height: 100vh;
+
+    padding: 40px 50px;
+}
+
+
+/* =====================================================
+   PAGE
+===================================================== */
+
+.page {
+    display: none;
+
+    max-width: 1100px;
+
+    margin: 0 auto;
+}
+
+
+.page.active-page {
+    display: block;
+}
+
+
+/* =====================================================
+   TOPBAR
+===================================================== */
+
+.topbar {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 38px;
+}
+
+
+.topbar h1 {
+    font-size: 32px;
+
+    line-height: 1.2;
+
+    color: #172033;
+
+    margin-bottom: 8px;
+}
+
+
+.topbar p {
+    color: #7b8494;
+
+    font-size: 15px;
+}
+
+
+.streak {
+    background: #fff4df;
+
+    color: #a16207;
+
+    padding: 11px 16px;
+
+    border-radius: 12px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   HEADINGS
+===================================================== */
+
+h2 {
+    color: #172033;
+
+    font-size: 20px;
+
+    margin-bottom: 18px;
+}
+
+
+h3 {
+    color: #263247;
+
+    font-size: 16px;
+
+    margin-top: 25px;
+
+    margin-bottom: 12px;
+}
+
+
+/* =====================================================
+   GOAL GRID
+===================================================== */
+
+.goal-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 35px;
+}
+
+
+.goal-card {
+    background: #ffffff;
+
+    border: 1px solid #e8edf3;
+
+    border-radius: 16px;
+
+    padding: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    box-shadow:
+        0 4px 14px rgba(30, 60, 90, 0.04);
+}
+
+
+.goal-card .icon {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #f1f6fb;
+
+    border-radius: 12px;
+
+    font-size: 22px;
+}
+
+
+.goal-card strong {
+    display: block;
+
+    font-size: 23px;
+
+    color: #172033;
+}
+
+
+.goal-card p {
+    color: #8992a2;
+
+    font-size: 13px;
+
+    margin-top: 2px;
+}
+
+
+/* =====================================================
+   SECTION TITLE
+===================================================== */
+
+.section-title {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 12px;
+}
+
+
+.section-title h2 {
+    margin-bottom: 0;
+}
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+.progress-section {
+    margin-bottom: 38px;
+}
+
+
+.progress-bar {
+    width: 100%;
+
+    height: 10px;
+
+    background: #e9eef4;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+
+.progress-value {
+    width: 0%;
+
+    height: 100%;
+
+    background: #3b82f6;
+
+    border-radius: 20px;
+
+    transition: width 0.4s ease;
+}
+
+
+.muted {
+    color: #8b95a5;
+
+    font-size: 13px;
+
+    margin-top: 10px;
+}
+
+
+/* =====================================================
+   LINK BUTTON
+===================================================== */
+
+.link-button {
+    border: none;
+
+    background: transparent;
+
+    color: #2563eb;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+
+.link-button:hover {
+    text-decoration: underline;
+}
+
+
+/* =====================================================
+   LESSON CARD
+===================================================== */
+
+.lesson-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    background: #ffffff;
+
+    border: 1px solid #e7edf4;
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+    margin-bottom: 38px;
+
+    box-shadow:
+        0 5px 18px rgba(30, 60, 90, 0.05);
+}
+
+
+.lesson-icon {
+    width: 65px;
+    height: 65px;
+
+    min-width: 65px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #eef6ff;
+
+    border-radius: 16px;
+
+    font-size: 30px;
+}
+
+
+.lesson-content {
+    flex: 1;
+}
+
+
+.lesson-content h2 {
+    margin: 8px 0;
+
+    font-size: 23px;
+}
+
+
+.lesson-content p {
+    color: #737e8e;
+
+    line-height: 1.6;
+
+    font-size: 14px;
+
+    max-width: 650px;
+}
+
+
+.tag {
+    display: inline-block;
+
+    background: #edf5ff;
+
+    color: #2875d6;
+
+    padding: 5px 9px;
+
+    border-radius: 7px;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+}
+
+
+.lesson-meta {
+    display: flex;
+
+    gap: 18px;
+
+    margin-top: 15px;
+
+    color: #8a94a4;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+button {
+    font-family: inherit;
+}
+
+
+.start-button,
+.primary-button,
+.next-button,
+.secondary-button {
+    border: none;
+
+    border-radius: 10px;
+
+    padding: 11px 17px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.start-button,
+.primary-button,
+.next-button {
+    background: #2563eb;
+
+    color: #ffffff;
+}
+
+
+.start-button:hover,
+.primary-button:hover,
+.next-button:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 5px 14px rgba(37, 99, 235, 0.22);
+}
+
+
+.secondary-button {
+    background: #f1f4f8;
+
+    color: #526071;
+}
+
+
+.secondary-button:hover {
+    background: #e7ecf2;
+}
+
+
+/* =====================================================
+   SMALL CARDS
+===================================================== */
+
+.learning-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 16px;
+}
+
+
+.small-card {
+    background: #ffffff;
+
+    border: 1px solid #e8edf3;
+
+    border-radius: 15px;
+
+    padding: 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.small-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 18px rgba(30, 60, 90, 0.08);
+}
+
+
+.small-card > span {
+    font-size: 25px;
+}
+
+
+.small-card strong {
+    display: block;
+
+    font-size: 14px;
+
+    color: #263247;
+}
+
+
+.small-card p {
+    font-size: 12px;
+
+    color: #8a94a4;
+
+    margin-top: 4px;
+}
+
+
+/* =====================================================
+   PAGE HEADER
+===================================================== */
+
+.page-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+
+.page-header h1 {
+    font-size: 30px;
+
+    color: #172033;
+
+    margin-bottom: 7px;
+}
+
+
+.page-header p {
+    color: #7d8796;
+
+    font-size: 14px;
+}
+
+
+.counter {
+    background: #ffffff;
+
+    border: 1px solid #e5eaf0;
+
+    padding: 9px 14px;
+
+    border-radius: 10px;
+
+    color: #596578;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   FLASHCARD
+===================================================== */
+
+.flashcard {
+    max-width: 760px;
+
+    margin: 30px auto;
+
+    background: #ffffff;
+
+    border: 1px solid #e5eaf0;
+
+    border-radius: 22px;
+
+    padding: 48px;
+
+    text-align: center;
+
+    box-shadow:
+        0 10px 35px rgba(30, 60, 90, 0.07);
+}
+
+
+.flashcard > .tag {
+    margin-bottom: 25px;
+}
+
+
+/* =====================================================
+   CLICKABLE WORD
+===================================================== */
+
+.clickable-word {
+    display: inline-block;
+
+    color: #172033;
+
+    font-size: 44px;
+
+    line-height: 1.2;
+
+    margin-bottom: 8px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.clickable-word:hover {
+    transform: scale(1.03);
+
+    color: #2563eb;
+}
+
+
+.clickable-word:active {
+    transform: scale(0.98);
+}
+
+
+/* =====================================================
+   PRONUNCIATION
+===================================================== */
+
+.pronunciation {
+    color: #7b8797;
+
+    font-size: 16px;
+
+    margin-bottom: 22px;
+}
+
+
+#meaning {
+    color: #2563eb;
+
+    font-size: 25px;
+
+    margin-bottom: 25px;
+}
+
+
+/* =====================================================
+   LISTEN HINT
+===================================================== */
+
+.listen-hint {
+    margin-top: 16px;
+
+    color: #8a94a4;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   EXAMPLE
+===================================================== */
+
+.example-box {
+    background: #f5f8fc;
+
+    border-radius: 14px;
+
+    padding: 20px;
+
+    text-align: left;
+
+    margin: 25px 0;
+}
+
+
+.example-box strong {
+    display: block;
+
+    color: #526071;
+
+    font-size: 13px;
+
+    margin-bottom: 8px;
+}
+
+
+.example-box p {
+    color: #3d4858;
+
+    font-size: 14px;
+
+    line-height: 1.65;
+}
+
+
+/* =====================================================
+   FLASHCARD ACTIONS
+===================================================== */
+
+.flashcard-actions {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+
+.next-container {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-top: 25px;
+}
+
+
+.next-container button {
+    flex: 1;
+}
+
+
+/* =====================================================
+   REMEMBER STATUS
+===================================================== */
+
+.remember-status {
+    min-height: 22px;
+
+    margin-top: 18px;
+
+    font-size: 13px;
+
+    color: #667384;
+}
+
+
+/* =====================================================
+   CLINICAL CASE
+===================================================== */
+
+.case-card {
+    max-width: 850px;
+
+    margin: 0 auto;
+
+    background: #ffffff;
+
+    border: 1px solid #e5eaf0;
+
+    border-radius: 20px;
+
+    padding: 35px;
+
+    box-shadow:
+        0 8px 28px rgba(30, 60, 90, 0.05);
+}
+
+
+.case-card h2 {
+    font-size: 25px;
+
+    margin-top: 15px;
+}
+
+
+.case-text {
+    color: #4d5969;
+
+    line-height: 1.8;
+
+    font-size: 15px;
+
+    margin: 20px 0;
+}
+
+
+.case-card h3 {
+    margin-top: 25px;
+}
+
+
+.case-card > p:not(.case-text) {
+    color: #596578;
+
+    line-height: 1.6;
+
+    margin-bottom: 18px;
+}
+
+
+.case-vocabulary {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 9px;
+}
+
+
+.case-vocabulary span {
+    background: #eef5ff;
+
+    color: #286ed1;
+
+    padding: 7px 11px;
+
+    border-radius: 8px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   ANSWER BOX
+===================================================== */
+
+.answer-box {
+    display: none;
+
+    background: #edf8f1;
+
+    border-left: 4px solid #35a66a;
+
+    padding: 16px;
+
+    margin-top: 18px;
+
+    border-radius: 8px;
+
+    color: #286744;
+
+    line-height: 1.6;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   QUIZ
+===================================================== */
+
+.quiz-card {
+    max-width: 800px;
+
+    margin: 0 auto;
+
+    background: #ffffff;
+
+    border: 1px solid #e5eaf0;
+
+    border-radius: 20px;
+
+    padding: 38px;
+
+    box-shadow:
+        0 8px 28px rgba(30, 60, 90, 0.05);
+}
+
+
+.quiz-card h2 {
+    font-size: 23px;
+
+    line-height: 1.5;
+
+    margin-bottom: 25px;
+}
+
+
+.quiz-options {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+.quiz-option {
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border-radius: 10px;
+
+    border: 1px solid #dfe5ec;
+
+    background: #ffffff;
+
+    color: #465265;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    transition:
+        background 0.2s ease,
+        border 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.quiz-option:hover {
+    background: #f5f8fc;
+
+    border-color: #b9c8dc;
+
+    transform: translateX(2px);
+}
+
+
+.quiz-option.correct {
+    background: #e9f8ef;
+
+    border-color: #54b77d;
+
+    color: #267047;
+}
+
+
+.quiz-option.wrong {
+    background: #fff0f0;
+
+    border-color: #e17a7a;
+
+    color: #a83d3d;
+}
+
+
+.quiz-feedback {
+    min-height: 24px;
+
+    margin: 18px 0;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+.quiz-next {
+    margin-top: 5px;
+}
+
+
+/* =====================================================
+   PROGRESS PAGE
+===================================================== */
+
+.progress-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 30px;
+}
+
+
+.stat-card {
+    background: #ffffff;
+
+    border: 1px solid #e5eaf0;
+
+    border-radius: 16px;
+
+    padding: 25px;
+
+    text-align: center;
+
+    box-shadow:
+        0 5px 18px rgba(30, 60, 90, 0.04);
+}
+
+
+.stat-card > span {
+    display: block;
+
+    font-size: 27px;
+
+    margin-bottom: 10px;
+}
+
+
+.stat-card strong {
+    display: block;
+
+    font-size: 27px;
+
+    color: #172033;
+}
+
+
+.stat-card p {
+    color: #8992a2;
+
+    font-size: 12px;
+
+    margin-top: 5px;
+}
+
+
+.large-progress {
+    background: #ffffff;
+
+    border: 1px solid #e5eaf0;
+
+    border-radius: 18px;
+
+    padding: 28px;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        width: 210px;
+    }
+
+
+    .main {
+        margin-left: 210px;
+
+        width: calc(100% - 210px);
+
+        padding: 30px;
+    }
+
+
+    .goal-grid,
+    .learning-grid,
+    .progress-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .lesson-card {
+        align-items: flex-start;
+
+        flex-wrap: wrap;
+    }
+
+
+    .start-button {
+        width: 100%;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .app {
+        display: block;
+    }
+
+
+    .sidebar {
+        position: relative;
+
+        width: 100%;
+
+        min-height: auto;
+
+        border-right: none;
+
+        border-bottom: 1px solid #e5e7eb;
+
+        padding: 15px;
+    }
+
+
+    .logo {
+        padding-bottom: 15px;
+    }
+
+
+    nav {
+        flex-direction: row;
+
+        overflow-x: auto;
+    }
+
+
+    .nav-item {
+        white-space: nowrap;
+
+        width: auto;
+
+        padding: 10px 12px;
+    }
+
+
+    .main {
+        margin-left: 0;
+
+        width: 100%;
+
+        padding: 25px 18px;
+    }
+
+
+    .topbar {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+
+    .topbar h1 {
+        font-size: 27px;
+    }
+
+
+    .page-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+
+    .flashcard {
+        padding: 30px 20px;
+    }
+
+
+    .clickable-word {
+        font-size: 34px;
+    }
+
+
+    .flashcard-actions {
+        flex-direction: column;
+    }
+
+
+    .flashcard-actions button {
+        width: 100%;
+    }
+
+
+    .next-container {
+        flex-direction: column;
+    }
+
+
+    .lesson-card {
+        flex-direction: column;
+    }
+
+
+    .lesson-icon {
+        width: 55px;
+        height: 55px;
+    }
+
+
+    .lesson-meta {
+        flex-direction: column;
+
+        gap: 6px;
+    }
+
+
+    .case-card,
+    .quiz-card {
+        padding: 25px 18px;
+    }
+
+}
+```

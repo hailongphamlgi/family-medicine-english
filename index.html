@@ -1,0 +1,823 @@
+```html
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>English for Family Medicine</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+<div class="app">
+
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                🩺
+            </div>
+
+            <div class="logo-text">
+                <strong>Tiếng Anh của Hạnh<strong>
+                <span>Family Medicine</span>
+            </div>
+
+        </div>
+
+
+        <nav>
+
+            <button class="nav-item active" data-page="dashboard">
+                🏠 Dashboard
+            </button>
+
+            <button class="nav-item" data-page="vocabulary">
+                📚 Vocabulary
+            </button>
+
+            <button class="nav-item" data-page="cases">
+                🩺 Clinical Cases
+            </button>
+
+            <button class="nav-item" data-page="quiz">
+                ✍️ Quiz
+            </button>
+
+            <button class="nav-item" data-page="progress">
+                📊 Progress
+            </button>
+
+        </nav>
+
+    </aside>
+
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main class="main">
+
+
+        <!-- =========================
+             DASHBOARD
+        ========================== -->
+
+        <section id="dashboardPage" class="page active-page">
+
+            <header class="topbar">
+
+                <div>
+
+                    <h1>
+                        Good evening 👋
+                    </h1>
+
+                    <p>
+                        Let's improve your clinical English today.
+                    </p>
+
+                </div>
+
+
+                <div class="streak">
+                    🔥 <span id="streakNumber">1</span> day streak
+                </div>
+
+            </header>
+
+
+
+            <!-- TODAY'S GOAL -->
+
+            <section>
+
+                <h2>
+                    Today's goal
+                </h2>
+
+
+                <div class="goal-grid">
+
+
+                    <div class="goal-card">
+
+                        <div class="icon">
+                            📚
+                        </div>
+
+                        <div>
+
+                            <strong id="vocabularyGoal">
+                                10
+                            </strong>
+
+                            <p>
+                                Vocabulary
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="goal-card">
+
+                        <div class="icon">
+                            💬
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                5
+                            </strong>
+
+                            <p>
+                                Clinical phrases
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="goal-card">
+
+                        <div class="icon">
+                            🩺
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                1
+                            </strong>
+
+                            <p>
+                                Clinical case
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- PROGRESS -->
+
+            <section class="progress-section">
+
+                <div class="section-title">
+
+                    <h2>
+                        Today's progress
+                    </h2>
+
+                    <strong id="dashboardProgress">
+                        0%
+                    </strong>
+
+                </div>
+
+
+                <div class="progress-bar">
+
+                    <div
+                        id="dashboardProgressBar"
+                        class="progress-value">
+                    </div>
+
+                </div>
+
+
+                <p class="muted">
+                    Keep learning every day.
+                </p>
+
+            </section>
+
+
+
+            <!-- TODAY'S LESSON -->
+
+            <section>
+
+                <div class="section-title">
+
+                    <h2>
+                        Today's lesson
+                    </h2>
+
+                    <button
+                        class="link-button"
+                        data-page="vocabulary">
+
+                        View all →
+
+                    </button>
+
+                </div>
+
+
+                <div class="lesson-card">
+
+                    <div class="lesson-icon">
+                        🩸
+                    </div>
+
+
+                    <div class="lesson-content">
+
+                        <span class="tag">
+                            FAMILY MEDICINE
+                        </span>
+
+
+                        <h2>
+                            Hypertension
+                        </h2>
+
+
+                        <p>
+                            Learn essential vocabulary and clinical
+                            phrases for managing patients with hypertension.
+                        </p>
+
+
+                        <div class="lesson-meta">
+
+                            <span>
+                                📚 5 words
+                            </span>
+
+                            <span>
+                                💬 8 phrases
+                            </span>
+
+                            <span>
+                                ⏱ 15 min
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="start-button"
+                        data-page="vocabulary">
+
+                        Start lesson →
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- CONTINUE -->
+
+            <section>
+
+                <h2>
+                    Continue learning
+                </h2>
+
+
+                <div class="learning-grid">
+
+
+                    <div class="small-card">
+
+                        <span>
+                            🫁
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                COPD
+                            </strong>
+
+                            <p>
+                                12 words · 10 min
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="small-card">
+
+                        <span>
+                            🩸
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Diabetes
+                            </strong>
+
+                            <p>
+                                18 words · 15 min
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="small-card">
+
+                        <span>
+                            ❤️
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Cardiovascular risk
+                            </strong>
+
+                            <p>
+                                14 words · 12 min
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+        </section>
+
+
+
+        <!-- =========================
+             VOCABULARY
+        ========================== -->
+
+        <section id="vocabularyPage" class="page">
+
+            <div class="page-header">
+
+                <div>
+
+                    <h1>
+                        📚 Vocabulary
+                    </h1>
+
+                    <p>
+                        Family Medicine · Hypertension
+                    </p>
+
+                </div>
+
+
+                <div class="counter">
+
+                    <span id="wordCounter">
+                        1 / 5
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="flashcard">
+
+                <span class="tag">
+                    MEDICAL ENGLISH
+                </span>
+
+
+                <!-- CLICKABLE WORD -->
+
+                <h1
+                    id="word"
+                    class="clickable-word"
+                    title="Click to hear pronunciation">
+
+                    hypertension
+
+                </h1>
+
+
+                <p
+                    id="pronunciation"
+                    class="pronunciation">
+                </p>
+
+
+                <h2 id="meaning">
+                </h2>
+
+
+                <div class="example-box">
+
+                    <strong>
+                        💬 Example
+                    </strong>
+
+                    <p id="example">
+                    </p>
+
+                </div>
+
+
+                <div class="listen-hint">
+                    🔊 Click the word to hear pronunciation
+                </div>
+
+
+                <div class="flashcard-actions">
+
+                    <button
+                        id="notRememberedBtn"
+                        class="secondary-button">
+
+                        ❌ Chưa nhớ
+
+                    </button>
+
+
+                    <button
+                        id="rememberedBtn"
+                        class="primary-button">
+
+                        ✅ Đã nhớ
+
+                    </button>
+
+                </div>
+
+
+                <div class="next-container">
+
+                    <button
+                        id="previousBtn"
+                        class="secondary-button">
+
+                        ← Previous
+
+                    </button>
+
+
+                    <button
+                        id="nextBtn"
+                        class="next-button">
+
+                        Next →
+
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="rememberStatus"
+                    class="remember-status">
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             CLINICAL CASES
+        ========================== -->
+
+        <section id="casesPage" class="page">
+
+            <div class="page-header">
+
+                <div>
+
+                    <h1>
+                        🩺 Clinical Cases
+                    </h1>
+
+                    <p>
+                        Practice English in real clinical situations.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="case-card">
+
+                <span class="tag">
+                    FAMILY MEDICINE
+                </span>
+
+
+                <h2>
+                    Case 01 · Hypertension
+                </h2>
+
+
+                <p class="case-text">
+
+                    A 58-year-old man presents to the family
+                    medicine clinic with a 3-month history of
+                    intermittent headaches.
+
+                </p>
+
+
+                <h3>
+                    Useful vocabulary
+                </h3>
+
+
+                <div class="case-vocabulary">
+
+                    <span>
+                        presents with
+                    </span>
+
+                    <span>
+                        intermittent
+                    </span>
+
+                    <span>
+                        headache
+                    </span>
+
+                    <span>
+                        medical history
+                    </span>
+
+                    <span>
+                        risk factor
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Clinical question
+                </h3>
+
+
+                <p>
+                    How would you ask the patient about
+                    the duration of his symptoms?
+                </p>
+
+
+                <button
+                    id="showCaseAnswer"
+                    class="primary-button">
+
+                    Show answer
+
+                </button>
+
+
+                <div
+                    id="caseAnswer"
+                    class="answer-box">
+
+                    "How long have you been experiencing
+                    these symptoms?"
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             QUIZ
+        ========================== -->
+
+        <section id="quizPage" class="page">
+
+            <div class="page-header">
+
+                <div>
+
+                    <h1>
+                        ✍️ Clinical English Quiz
+                    </h1>
+
+                    <p>
+                        Test your medical English.
+                    </p>
+
+                </div>
+
+
+                <div class="counter">
+
+                    Question
+                    <span id="quizCounter">
+                        1 / 5
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="quiz-card">
+
+                <h2 id="quizQuestion">
+                </h2>
+
+
+                <div
+                    id="quizOptions"
+                    class="quiz-options">
+                </div>
+
+
+                <div
+                    id="quizFeedback"
+                    class="quiz-feedback">
+                </div>
+
+
+                <button
+                    id="nextQuestionBtn"
+                    class="primary-button quiz-next">
+
+                    Next question →
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             PROGRESS
+        ========================== -->
+
+        <section id="progressPage" class="page">
+
+            <div class="page-header">
+
+                <div>
+
+                    <h1>
+                        📊 Your Progress
+                    </h1>
+
+                    <p>
+                        Track your clinical English learning.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="progress-grid">
+
+
+                <div class="stat-card">
+
+                    <span>
+                        📚
+                    </span>
+
+                    <strong id="knownWords">
+                        0
+                    </strong>
+
+                    <p>
+                        Words remembered
+                    </p>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <span>
+                        ✍️
+                    </span>
+
+                    <strong id="quizScore">
+                        0
+                    </strong>
+
+                    <p>
+                        Best quiz score
+                    </p>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <span>
+                        📈
+                    </span>
+
+                    <strong id="overallProgress">
+                        0%
+                    </strong>
+
+                    <p>
+                        Overall progress
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="progress-section large-progress">
+
+                <h2>
+                    Vocabulary progress
+                </h2>
+
+
+                <div class="progress-bar">
+
+                    <div
+                        id="vocabularyProgressBar"
+                        class="progress-value">
+                    </div>
+
+                </div>
+
+
+                <p
+                    id="vocabularyProgressText"
+                    class="muted">
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+<!-- =========================
+     DATA
+========================== -->
+
+<script src="data/vocabulary.js"></script>
+
+
+<!-- =========================
+     APPLICATION
+========================== -->
+
+<script src="app.js"></script>
+
+
+</body>
+
+</html>
+```
