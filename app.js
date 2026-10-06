@@ -1,3 +1,4 @@
+```javascript
 // =====================================================
 // FAMILY MEDICINE ENGLISH
 // Main Application
@@ -8,15 +9,13 @@
 // STORAGE
 // =====================================================
 
-let rememberedWords =
-    JSON.parse(
-        localStorage.getItem("rememberedWords") || "[]"
-    );
+let rememberedWords = JSON.parse(
+    localStorage.getItem("rememberedWords") || "[]"
+);
 
-let bestQuizScore =
-    Number(
-        localStorage.getItem("bestQuizScore") || 0
-    );
+let bestQuizScore = Number(
+    localStorage.getItem("bestQuizScore") || 0
+);
 
 
 // =====================================================
@@ -31,8 +30,7 @@ const pages = {
     progress: document.getElementById("progressPage")
 };
 
-const navItems =
-    document.querySelectorAll(".nav-item");
+const navItems = document.querySelectorAll(".nav-item");
 
 
 function showPage(pageName) {
@@ -47,9 +45,7 @@ function showPage(pageName) {
 
 
     if (pages[pageName]) {
-
         pages[pageName].classList.add("active-page");
-
     }
 
 
@@ -58,29 +54,25 @@ function showPage(pageName) {
         item.classList.remove("active");
 
         if (item.dataset.page === pageName) {
-
             item.classList.add("active");
-
         }
 
     });
 
 
     updateProgress();
-
 }
 
 
 // =====================================================
-// NAVIGATION CLICK
+// NAVIGATION BUTTONS
 // =====================================================
 
-navItems.forEach(function(item) {
+document.querySelectorAll("[data-page]").forEach(function(button) {
 
-    item.addEventListener("click", function() {
+    button.addEventListener("click", function() {
 
-        const pageName =
-            item.dataset.page;
+        const pageName = button.dataset.page;
 
         showPage(pageName);
 
@@ -89,27 +81,11 @@ navItems.forEach(function(item) {
 });
 
 
-document.querySelectorAll("[data-page]").forEach(function(button) {
-
-    if (!button.classList.contains("nav-item")) {
-
-        button.addEventListener("click", function() {
-
-            showPage(button.dataset.page);
-
-        });
-
-    }
-
-});
-
-
 // =====================================================
-// VOCABULARY
+// VOCABULARY ELEMENTS
 // =====================================================
 
 let currentWord = 0;
-
 
 const wordElement =
     document.getElementById("word");
@@ -128,6 +104,18 @@ const wordCounter =
 
 const rememberStatus =
     document.getElementById("rememberStatus");
+
+const previousBtn =
+    document.getElementById("previousBtn");
+
+const nextBtn =
+    document.getElementById("nextBtn");
+
+const rememberedBtn =
+    document.getElementById("rememberedBtn");
+
+const notRememberedBtn =
+    document.getElementById("notRememberedBtn");
 
 
 // =====================================================
@@ -157,11 +145,9 @@ function speakCurrentWord() {
         );
 
         return;
-
     }
 
 
-    // Stop previous pronunciation
     window.speechSynthesis.cancel();
 
 
@@ -175,89 +161,55 @@ function speakCurrentWord() {
 
 
     window.speechSynthesis.speak(speech);
-
 }
 
 
-// =====================================================
-// MAKE WORD CLICKABLE
-// =====================================================
+// Make vocabulary word clickable
 
 if (wordElement) {
 
     wordElement.classList.add("clickable-word");
-
-    wordElement.setAttribute(
-        "title",
-        "Click to hear pronunciation"
-    );
-
-    wordElement.setAttribute(
-        "role",
-        "button"
-    );
-
-    wordElement.setAttribute(
-        "tabindex",
-        "0"
-    );
-
 
     wordElement.addEventListener(
         "click",
         speakCurrentWord
     );
 
-
-    wordElement.addEventListener(
-        "keydown",
-        function(event) {
-
-            if (
-                event.key === "Enter" ||
-                event.key === " "
-            ) {
-
-                event.preventDefault();
-
-                speakCurrentWord();
-
-            }
-
-        }
-    );
-
 }
 
 
 // =====================================================
-// SHOW CURRENT WORD
+// SHOW VOCABULARY
 // =====================================================
 
 function showWord() {
 
     if (
         typeof vocabulary === "undefined" ||
-        !vocabulary ||
+        !Array.isArray(vocabulary) ||
         vocabulary.length === 0
     ) {
 
         console.error(
-            "Vocabulary data was not found."
+            "Vocabulary data was not loaded."
         );
 
         return;
+    }
 
+
+    if (currentWord < 0) {
+        currentWord = vocabulary.length - 1;
+    }
+
+
+    if (currentWord >= vocabulary.length) {
+        currentWord = 0;
     }
 
 
     const item =
         vocabulary[currentWord];
-
-
-    if (!item) {
-        return;
-    }
 
 
     if (wordElement) {
@@ -293,7 +245,6 @@ function showWord() {
 
 
     updateRememberStatus();
-
 }
 
 
@@ -301,13 +252,9 @@ function showWord() {
 // NEXT WORD
 // =====================================================
 
-const nextWordButton =
-    document.getElementById("nextWord");
+if (nextBtn) {
 
-
-if (nextWordButton) {
-
-    nextWordButton.addEventListener(
+    nextBtn.addEventListener(
         "click",
         function() {
 
@@ -343,13 +290,9 @@ if (nextWordButton) {
 // PREVIOUS WORD
 // =====================================================
 
-const previousWordButton =
-    document.getElementById("previousWord");
+if (previousBtn) {
 
-
-if (previousWordButton) {
-
-    previousWordButton.addEventListener(
+    previousBtn.addEventListener(
         "click",
         function() {
 
@@ -383,16 +326,12 @@ if (previousWordButton) {
 
 
 // =====================================================
-// REMEMBER WORD
+// REMEMBERED
 // =====================================================
 
-const rememberButton =
-    document.getElementById("rememberWord");
+if (rememberedBtn) {
 
-
-if (rememberButton) {
-
-    rememberButton.addEventListener(
+    rememberedBtn.addEventListener(
         "click",
         function() {
 
@@ -434,13 +373,9 @@ if (rememberButton) {
 // NOT REMEMBERED
 // =====================================================
 
-const notRememberButton =
-    document.getElementById("notRememberWord");
+if (notRememberedBtn) {
 
-
-if (notRememberButton) {
-
-    notRememberButton.addEventListener(
+    notRememberedBtn.addEventListener(
         "click",
         function() {
 
@@ -457,11 +392,11 @@ if (notRememberButton) {
 
 
             rememberedWords =
-                rememberedWords.filter(function(item) {
-
-                    return item !== word;
-
-                });
+                rememberedWords.filter(
+                    function(item) {
+                        return item !== word;
+                    }
+                );
 
 
             localStorage.setItem(
@@ -480,7 +415,7 @@ if (notRememberButton) {
 
 
 // =====================================================
-// UPDATE REMEMBER STATUS
+// REMEMBER STATUS
 // =====================================================
 
 function updateRememberStatus() {
@@ -501,16 +436,20 @@ function updateRememberStatus() {
     if (rememberedWords.includes(word)) {
 
         rememberStatus.textContent =
-            "✓ Remembered";
+            "✓ Đã nhớ";
 
-        rememberStatus.classList.add("remembered");
+        rememberStatus.classList.add(
+            "remembered"
+        );
 
     } else {
 
         rememberStatus.textContent =
-            "Not remembered";
+            "";
 
-        rememberStatus.classList.remove("remembered");
+        rememberStatus.classList.remove(
+            "remembered"
+        );
 
     }
 
@@ -518,52 +457,44 @@ function updateRememberStatus() {
 
 
 // =====================================================
-// CLINICAL CASES
+// CLINICAL CASE
 // =====================================================
 
-const revealButtons =
-    document.querySelectorAll(".reveal-answer");
+const showCaseAnswer =
+    document.getElementById("showCaseAnswer");
+
+const caseAnswer =
+    document.getElementById("caseAnswer");
 
 
-revealButtons.forEach(function(button) {
+if (showCaseAnswer && caseAnswer) {
 
-    button.addEventListener(
+    showCaseAnswer.addEventListener(
         "click",
         function() {
 
-            const answer =
-                button.parentElement.querySelector(
-                    ".case-answer"
-                );
+            if (
+                caseAnswer.style.display === "block"
+            ) {
 
+                caseAnswer.style.display = "none";
 
-            if (answer) {
+                showCaseAnswer.textContent =
+                    "Show answer";
 
-                answer.classList.toggle(
-                    "show"
-                );
+            } else {
 
+                caseAnswer.style.display = "block";
 
-                if (
-                    answer.classList.contains("show")
-                ) {
-
-                    button.textContent =
-                        "Hide Answer";
-
-                } else {
-
-                    button.textContent =
-                        "Show Answer";
-
-                }
+                showCaseAnswer.textContent =
+                    "Hide answer";
 
             }
 
         }
     );
 
-});
+}
 
 
 // =====================================================
@@ -648,15 +579,20 @@ const quizQuestions = [
 let currentQuestion = 0;
 let quizScore = 0;
 
-
-const quizQuestionElement =
+const quizQuestion =
     document.getElementById("quizQuestion");
 
-const quizOptionsElement =
+const quizOptions =
     document.getElementById("quizOptions");
 
-const quizScoreElement =
-    document.getElementById("quizScore");
+const quizFeedback =
+    document.getElementById("quizFeedback");
+
+const quizCounter =
+    document.getElementById("quizCounter");
+
+const nextQuestionBtn =
+    document.getElementById("nextQuestionBtn");
 
 
 // =====================================================
@@ -665,10 +601,7 @@ const quizScoreElement =
 
 function showQuizQuestion() {
 
-    if (
-        !quizQuestionElement ||
-        !quizOptionsElement
-    ) {
+    if (!quizQuestion || !quizOptions) {
         return;
     }
 
@@ -682,11 +615,24 @@ function showQuizQuestion() {
     }
 
 
-    quizQuestionElement.textContent =
+    quizQuestion.textContent =
         question.question;
 
 
-    quizOptionsElement.innerHTML = "";
+    quizOptions.innerHTML = "";
+
+
+    if (quizFeedback) {
+        quizFeedback.textContent = "";
+    }
+
+
+    if (quizCounter) {
+
+        quizCounter.textContent =
+            `${currentQuestion + 1} / ${quizQuestions.length}`;
+
+    }
 
 
     question.options.forEach(
@@ -698,7 +644,6 @@ function showQuizQuestion() {
 
             button.textContent =
                 option;
-
 
             button.className =
                 "quiz-option";
@@ -716,9 +661,7 @@ function showQuizQuestion() {
             );
 
 
-            quizOptionsElement.appendChild(
-                button
-            );
+            quizOptions.appendChild(button);
 
         }
     );
@@ -737,7 +680,7 @@ function checkQuizAnswer(selectedAnswer) {
 
 
     const buttons =
-        quizOptionsElement.querySelectorAll(
+        quizOptions.querySelectorAll(
             ".quiz-option"
         );
 
@@ -765,6 +708,14 @@ function checkQuizAnswer(selectedAnswer) {
 
         }
 
+
+        if (quizFeedback) {
+
+            quizFeedback.textContent =
+                "✓ Correct!";
+
+        }
+
     } else {
 
         if (buttons[selectedAnswer]) {
@@ -784,22 +735,26 @@ function checkQuizAnswer(selectedAnswer) {
 
         }
 
+
+        if (quizFeedback) {
+
+            quizFeedback.textContent =
+                "✗ Incorrect";
+
+        }
+
     }
 
 }
 
 
 // =====================================================
-// FINISH / NEXT QUIZ QUESTION
+// NEXT QUESTION
 // =====================================================
 
-const nextQuizButton =
-    document.getElementById("nextQuiz");
+if (nextQuestionBtn) {
 
-
-if (nextQuizButton) {
-
-    nextQuizButton.addEventListener(
+    nextQuestionBtn.addEventListener(
         "click",
         function() {
 
@@ -845,17 +800,17 @@ function finishQuiz() {
     }
 
 
-    if (quizQuestionElement) {
+    if (quizQuestion) {
 
-        quizQuestionElement.textContent =
-            "Quiz completed!";
+        quizQuestion.textContent =
+            "🎉 Quiz completed!";
 
     }
 
 
-    if (quizOptionsElement) {
+    if (quizOptions) {
 
-        quizOptionsElement.innerHTML =
+        quizOptions.innerHTML =
             `<div class="quiz-result">
                 Your score: ${quizScore} / ${quizQuestions.length}
             </div>`;
@@ -863,40 +818,36 @@ function finishQuiz() {
     }
 
 
-    if (quizScoreElement) {
+    if (quizCounter) {
 
-        quizScoreElement.textContent =
-            `${quizScore} / ${quizQuestions.length}`;
+        quizCounter.textContent =
+            "Finished";
+
+    }
+
+
+    if (nextQuestionBtn) {
+
+        nextQuestionBtn.textContent =
+            "Restart quiz";
+
+        nextQuestionBtn.onclick =
+            function() {
+
+                currentQuestion = 0;
+                quizScore = 0;
+
+                nextQuestionBtn.textContent =
+                    "Next question →";
+
+                showQuizQuestion();
+
+            };
 
     }
 
 
     updateProgress();
-
-}
-
-
-// =====================================================
-// START / RESET QUIZ
-// =====================================================
-
-const startQuizButton =
-    document.getElementById("startQuiz");
-
-
-if (startQuizButton) {
-
-    startQuizButton.addEventListener(
-        "click",
-        function() {
-
-            currentQuestion = 0;
-            quizScore = 0;
-
-            showQuizQuestion();
-
-        }
-    );
 
 }
 
@@ -908,7 +859,8 @@ if (startQuizButton) {
 function updateProgress() {
 
     const totalWords =
-        typeof vocabulary !== "undefined"
+        typeof vocabulary !== "undefined" &&
+        Array.isArray(vocabulary)
             ? vocabulary.length
             : 0;
 
@@ -927,62 +879,104 @@ function updateProgress() {
             : 0;
 
 
-    const progressElements =
-        document.querySelectorAll(
-            ".vocab-progress"
-        );
+    // Dashboard percentage
 
-
-    progressElements.forEach(
-        function(element) {
-
-            element.textContent =
-                `${percentage}%`;
-
-        }
-    );
-
-
-    const progressBars =
-        document.querySelectorAll(
-            ".progress-fill"
-        );
-
-
-    progressBars.forEach(
-        function(bar) {
-
-            bar.style.width =
-                `${percentage}%`;
-
-        }
-    );
-
-
-    const rememberedElement =
+    const dashboardProgress =
         document.getElementById(
-            "rememberedCount"
+            "dashboardProgress"
         );
 
 
-    if (rememberedElement) {
+    if (dashboardProgress) {
 
-        rememberedElement.textContent =
+        dashboardProgress.textContent =
+            `${percentage}%`;
+
+    }
+
+
+    const dashboardProgressBar =
+        document.getElementById(
+            "dashboardProgressBar"
+        );
+
+
+    if (dashboardProgressBar) {
+
+        dashboardProgressBar.style.width =
+            `${percentage}%`;
+
+    }
+
+
+    // Progress page
+
+    const knownWords =
+        document.getElementById(
+            "knownWords"
+        );
+
+
+    if (knownWords) {
+
+        knownWords.textContent =
             rememberedCount;
 
     }
 
 
-    const bestScoreElement =
+    const quizScoreElement =
         document.getElementById(
-            "bestQuizScore"
+            "quizScore"
         );
 
 
-    if (bestScoreElement) {
+    if (quizScoreElement) {
 
-        bestScoreElement.textContent =
+        quizScoreElement.textContent =
             bestQuizScore;
+
+    }
+
+
+    const overallProgress =
+        document.getElementById(
+            "overallProgress"
+        );
+
+
+    if (overallProgress) {
+
+        overallProgress.textContent =
+            `${percentage}%`;
+
+    }
+
+
+    const vocabularyProgressBar =
+        document.getElementById(
+            "vocabularyProgressBar"
+        );
+
+
+    if (vocabularyProgressBar) {
+
+        vocabularyProgressBar.style.width =
+            `${percentage}%`;
+
+    }
+
+
+    const vocabularyProgressText =
+        document.getElementById(
+            "vocabularyProgressText"
+        );
+
+
+    if (vocabularyProgressText) {
+
+        vocabularyProgressText.textContent =
+            `${rememberedCount} / ${totalWords} words remembered`;
 
     }
 
@@ -990,7 +984,7 @@ function updateProgress() {
 
 
 // =====================================================
-// INITIALIZE APPLICATION
+// INITIALIZE
 // =====================================================
 
 function initializeApp() {
@@ -1006,8 +1000,5 @@ function initializeApp() {
 }
 
 
-// =====================================================
-// START
-// =====================================================
-
 initializeApp();
+```
